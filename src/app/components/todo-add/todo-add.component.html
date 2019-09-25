@@ -1,0 +1,58 @@
+<div id="addTodo" *ngIf="displayAddTodo">
+  <form [formGroup]="formGroup" novalidate (ngSubmit)="addTodo()">
+    <table>
+      <tr>
+        <td colspan="2">
+          <mat-form-field>
+            <input formControlName="name" matInput placeholder="Task Name">
+          </mat-form-field>
+          <mat-error>
+            <span *ngIf="!formGroup.get('name').valid && formGroup.get('name').touched">Please enter Task
+              name</span>
+          </mat-error>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <mat-form-field>
+            <input formControlName="desc" matInput placeholder="Description">
+          </mat-form-field>
+          <mat-error>
+            <span *ngIf="!formGroup.get('desc').valid && formGroup.get('desc').touched">Please enter Description
+            </span>
+          </mat-error>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <mat-form-field>
+            <mat-label>Status</mat-label>
+            <mat-select formControlName="status">
+              <mat-option value="Pending">Pending</mat-option>
+              <mat-option value="Cancelled">Cancelled</mat-option>
+              <mat-option value="Done">Done</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-error>
+            <span *ngIf="!formGroup.get('status').valid && formGroup.get('status').touched">Please enter status</span>
+          </mat-error>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2" class="content-center">
+          <button mat-raised-button color="accent" [disabled]="!formGroup.valid" (onClick)="addTodo($event)">Submit</button>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <p-button class="btnAdd" label="BACK" (onClick)="goBack()"></p-button>
+
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+      </tr>
+    </table>
+  </form>
+  <br>
+
+  <!-- <p-button class="btnAdd" label="BACK" routerLink="/home/add-bcd/nar"></p-button> -->
+</div>

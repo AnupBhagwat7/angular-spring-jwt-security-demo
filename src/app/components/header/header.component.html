@@ -1,0 +1,14 @@
+<header>
+  <nav class ="navbar navbar-expand-md navbar-dark bg-dark">
+  <div><a href="http://www.myjavablog.com" class="navbar-brand">Myjavablog</a></div>
+  
+  <ul class="navbar-nav">
+    <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/todo-list" class="nav-link">View Todos</a></li>
+    <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/todo-add" class="nav-link">Add Todo</a></li>
+    <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
+    <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a></li>
+  </ul>
+  
+  </nav>
+  
+  </header>
